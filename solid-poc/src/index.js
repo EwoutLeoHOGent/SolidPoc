@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import SolidPoc from "./App.jsx";
+import SolidPoc from "./App.js";
 
 ReactDOM.render(
   <React.StrictMode>
