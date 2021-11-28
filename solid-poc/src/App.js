@@ -14,10 +14,18 @@ import {
   getThingAll,
   removeThing,
   getFile,
+  createAcl,
+  getFileWithAcl,
+  hasResourceAcl,
+  setAgentResourceAccess,
+  saveAclFor,
+  deleteAclFor,
+  getAgentAccessAll,
 } from "@inrupt/solid-client";
 
 import {
   login,
+  logout,
   handleIncomingRedirect,
   getDefaultSession,
   fetch,
@@ -39,6 +47,12 @@ export default function SolidPoc() {
   //SOLID
   const handleChange = (event) => {
     setOidcIssuer(event.target.value);
+  };
+
+  // logout of session, not pod-provider
+  const logoutUser = () => {
+    console.log("logout");
+    return logout();
   };
 
   // 1a. Start Login Process. Call login() function.
@@ -215,6 +229,80 @@ export default function SolidPoc() {
     }
   }
 
+  async function giveAcces() {
+    const file = await getFileWithAcl(
+      "https://ewout.inrupt.net/pdf/testPdf.pdf",
+      { fetch: fetch }
+    );
+
+    if (!hasResourceAcl(file)) {
+      console.log("Geen acl, nieuwe acl wordt aangemaakt");
+
+      const testAcl = createAcl(file);
+
+      // Give someone Control access to the given Resource:
+      const updatedAcl = setAgentResourceAccess(
+        testAcl,
+        "https://ewout.inrupt.net/profile/card#me",
+        {
+          read: true,
+          append: true,
+          write: true,
+          control: true,
+        }
+      );
+
+      // Now save the ACL:
+      await saveAclFor(file, updatedAcl, { fetch: fetch });
+
+      const updatedAcl2 = setAgentResourceAccess(
+        updatedAcl,
+        "https://pod.inrupt.com/ewout/profile/card#me",
+        {
+          read: true,
+          append: true,
+          write: true,
+          control: true,
+        }
+      );
+
+      // Now save the ACL:
+      await saveAclFor(file, updatedAcl2, { fetch: fetch });
+
+      console.log("Nieuwe acl aangemaakt");
+    } else {
+      console.log("Heeft een bestaande acl");
+      console.log("Wordt verwijderd");
+
+      deleteAclFor(file, { fetch: fetch });
+    }
+  }
+
+  async function getAccesRights() {
+    const file = await getFileWithAcl(
+      "https://ewout.inrupt.net/pdf/testPdf.pdf",
+      { fetch: fetch }
+    );
+
+    console.log(
+      getAgentAccessAll(file, {
+        fetch: fetch,
+      })
+    );
+  }
+
+  async function seeIfItWorks() {
+    try {
+      const file = await getFileWithAcl(
+        "https://ewout.inrupt.net/pdf/testPdf.pdf",
+        { fetch: fetch }
+      );
+      console.log("toegang");
+    } catch (e) {
+      console.log("geen toegang");
+    }
+  }
+
   return (
     <div>
       <header>
@@ -254,6 +342,9 @@ export default function SolidPoc() {
           <label id="labelLogin">1. Click the button to log in: </label>
           <button name="btnLogin" id="btnLogin" onClick={loginToInruptDotNet}>
             Login
+          </button>
+          <button name="btnLogin" id="btnLogin" onClick={logoutUser}>
+            Logout
           </button>
           <p id="labelStatus"></p>
         </div>
@@ -375,7 +466,10 @@ export default function SolidPoc() {
                     cols="42"
                     readOnly
                   />
-                  <a href="https://ewout.inrupt.net//public/music/myList.txt" download>
+                  <a
+                    href="https://ewout.inrupt.net//public/music/myList.txt"
+                    download
+                  >
                     Click to download
                   </a>
                 </td>
@@ -385,10 +479,16 @@ export default function SolidPoc() {
         </div>
       </Box>
       <div>
-        <a href="https://ewout.inrupt.net/pdfTest/testPDF.pdf" download>
-          Click to download
-        </a>
+        <button name="btnCreate" id="btnCreate" onClick={seeIfItWorks}>
+          See if it works
+        </button>
       </div>
+      <button name="btnCreate" id="btnCreate" onClick={giveAcces}>
+        Check acl
+      </button>
+      <button name="btnCreate" id="btnCreate" onClick={getAccesRights}>
+        Get rights
+      </button>
     </div>
   );
 }
