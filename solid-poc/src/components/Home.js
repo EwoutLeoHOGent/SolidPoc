@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginService from "../services/LoginService";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
@@ -12,8 +12,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router";
 import AclService from "../services/AclService";
+import Alert from "@mui/material/Alert";
 
 export default function Home() {
+  const [hasError, setHasError] = useState(false);
   const navigate = useNavigate();
 
   //logout user from application
@@ -33,55 +35,46 @@ export default function Home() {
   //completes login
   LoginService.redirectAfterLogin();
 
-  /*
-  useEffect(() => {
-    const session = getDefaultSession();
-    console.log(session);
-  });
-  */
-
   const jobs = [
     {
       title: "Junior Java developer",
       description: [
-        "10 users included",
-        "2 GB of storage",
-        "Help center access",
-        "Email support",
+        "------------------",
+        "------------------",
+        "------------------",
+        "------------------",
       ],
       buttonText: "Give acces",
       buttonVariant: "contained",
+      id: 1,
     },
     {
       title: "Data expert",
       description: [
-        "20 users included",
-        "10 GB of storage",
-        "Help center access",
-        "Priority email support",
+        "------------------",
+        "------------------",
+        "------------------",
+        "------------------",
       ],
       buttonText: "Give acces",
       buttonVariant: "contained",
+      id: 2,
     },
     {
       title: "Business analist",
       description: [
-        "50 users included",
-        "30 GB of storage",
-        "Help center access",
-        "Phone & email support",
+        "------------------",
+        "------------------",
+        "------------------",
+        "------------------",
       ],
       buttonText: "Give acces",
       buttonVariant: "contained",
+      id: 3,
     },
   ];
 
   return (
-    /*
-    <div>
-      <p>Logged in</p>
-    </div>
-    */
     <div>
       <AppBar
         position="static"
@@ -109,6 +102,11 @@ export default function Home() {
           </Button>
         </Toolbar>
       </AppBar>
+      <div hidden={!hasError}>
+        <Alert id="errorAlert" severity="error">
+          This is an error alert — check it out!
+        </Alert>
+      </div>
       <Container maxWidth="md" component="main" sx={{ marginTop: "10px" }}>
         <Grid container spacing={5} alignItems="flex-end">
           {jobs.map((job) => (
@@ -130,12 +128,12 @@ export default function Home() {
                 />
                 <CardContent>
                   <ul>
-                    {job.description.map((line) => (
+                    {job.description.map((line, index) => (
                       <Typography
                         component="li"
                         variant="subtitle1"
                         align="center"
-                        key={line}
+                        key={index}
                       >
                         {line}
                       </Typography>
@@ -163,15 +161,6 @@ export default function Home() {
           ))}
         </Grid>
       </Container>
-      <Container
-        maxWidth="md"
-        component="footer"
-        sx={{
-          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 8,
-          py: [3, 6],
-        }}
-      ></Container>
     </div>
   );
 }
