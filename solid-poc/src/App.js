@@ -232,7 +232,9 @@ export default function SolidPoc() {
   async function giveAcces() {
     const file = await getFileWithAcl(
       "https://ewout.inrupt.net/pdf/testPdf.pdf",
-      { fetch: fetch }
+      {
+        fetch: fetch,
+      }
     );
 
     if (!hasResourceAcl(file)) {
@@ -257,7 +259,7 @@ export default function SolidPoc() {
 
       const updatedAcl2 = setAgentResourceAccess(
         updatedAcl,
-        "https://pod.inrupt.com/ewout/profile/card#me",
+        "https://ewout.solidcommunity.net/profile/card#me",
         {
           read: true,
           append: true,
@@ -293,13 +295,13 @@ export default function SolidPoc() {
 
   async function seeIfItWorks() {
     try {
-      const file = await getFileWithAcl(
-        "https://ewout.inrupt.net/pdf/testPdf.pdf",
-        { fetch: fetch }
-      );
+      const file = await getFile("https://ewout.inrupt.net/pdf/testPdf.pdf", {
+        fetch: fetch,
+      });
       console.log("toegang");
+      console.log(file);
     } catch (e) {
-      console.log("geen toegang");
+      console.log({ e });
     }
   }
 
