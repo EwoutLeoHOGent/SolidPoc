@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import SolidPoc from "./components/App.js";
 import Login from "./components/Login.js";
+import Home from "./components/Home.js";
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +19,7 @@ const App = () => {
           <Route exact path="/" element={<Navigate to="/Test" />}></Route>
           <Route exact path="/Test" element={<SolidPoc />}></Route>;
           <Route exact path="/Login" element={<Login />}></Route>;
+          <Route exact path="/Home" element={<Home />}></Route>;
         </Routes>
       </Router>
     </div>

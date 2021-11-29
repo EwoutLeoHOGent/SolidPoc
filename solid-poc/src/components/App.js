@@ -72,12 +72,9 @@ export default function SolidPoc() {
     const session = getDefaultSession();
 
     if (session.info.isLoggedIn) {
+      console.log("inloggen gelukt");
       //Show read and write div
       setIsNotLoggedIn(false);
-
-      //document.getElementById("readDiv").hidden = "false";
-      //document.getElementById("writeDiv").hidden = "false";
-
       // Update the page with the status.
       document.getElementById("labelStatus").textContent =
         "Your session is logged in.";
@@ -93,6 +90,8 @@ export default function SolidPoc() {
       //get podUrl
       const teststring = session.info.webId.split("/profile");
       setPodUrl(teststring[0]);
+    } else {
+      console.log("inloggen mislukt");
     }
   }
 

@@ -12,13 +12,6 @@ export default function Login() {
     LoginService.loginToPodProvider(provider);
   };
 
-  LoginService.redirectAfterLogin();
-
-  //logout user from application
-  const logoutUser = () => {
-    LoginService.logoutUser();
-  };
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

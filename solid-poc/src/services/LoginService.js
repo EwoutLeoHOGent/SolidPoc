@@ -9,7 +9,7 @@ const LoginService = {
   loginToPodProvider: function (oidcIssuerUser) {
     return login({
       oidcIssuer: oidcIssuerUser,
-      redirectUrl: "http://localhost:3000/Test", //nog eens navragen
+      redirectUrl: "http://localhost:3000/Home", //window.location.href, //"http://localhost:3000/Home", nog eens navragen
       clientName: "Solid poc",
     });
   },
@@ -24,8 +24,13 @@ const LoginService = {
 
     const session = getDefaultSession();
 
+    /*console.log(session); */
+
     if (session.info.isLoggedIn) {
+      //sessionStorage.setItem("webID", session.info.webId);
       console.log("inloggen gelukt");
+
+      document.getElementById("loggedInUser").textContent = session.info.webId;
     }
   },
 };
