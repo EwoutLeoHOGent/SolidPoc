@@ -3,31 +3,94 @@
         {
         "id": 1,
         "title": "Junior Java developer",
-        "description": [
+        "shortdescription": [
           "------------------",
           "------------------",
           "------------------",
           "------------------"
+        ],
+        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "tasks": [
+          "Develop and implement new (technical) solutions or tools to improve the customer journey",
+          "Setting up additional GTM tracking where needed",
+          "Developing A/B-tests in current A/B-test solution",
+          "Implementing winning A/B test variations",
+          "Collaborating on GitHub and Jira",
+          "Maintaining codebase",
+          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+        ],
+
+        "skills": [
+          "Specialist in HTML, CSS, jQuery",
+          "Good knowledge of JavaScript (ES5)",
+          "1-3 years demonstrable experience creating websites with clean, performant code",
+          "Pre: Google Analytics knowledge (Google Tag Manager)",
+          "Pre: A/B testing experience",
+          "Fluent in English & Dutch (French is a plus).",
+          "Pre: good knowledge of UX-design / best practices",
+          "Pre: Experience working in an agile/scrum environment"
         ]
       },
       {
         "id": 2,
         "title": "Data expert",
-        "description": [
+        "shortdescription": [
           "------------------",
           "------------------",
           "------------------",
           "------------------"
+        ],
+        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "tasks": [
+          "Develop and implement new (technical) solutions or tools to improve the customer journey",
+          "Setting up additional GTM tracking where needed",
+          "Developing A/B-tests in current A/B-test solution",
+          "Implementing winning A/B test variations",
+          "Collaborating on GitHub and Jira",
+          "Maintaining codebase",
+          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+        ],
+
+        "skills": [
+          "Specialist in HTML, CSS, jQuery",
+          "Good knowledge of JavaScript (ES5)",
+          "1-3 years demonstrable experience creating websites with clean, performant code",
+          "Pre: Google Analytics knowledge (Google Tag Manager)",
+          "Pre: A/B testing experience",
+          "Fluent in English & Dutch (French is a plus).",
+          "Pre: good knowledge of UX-design / best practices",
+          "Pre: Experience working in an agile/scrum environment"
         ]
       },
       {
         "id": 3,
-        "title": "Junior Java developer",
-        "description": [
+        "title": "Business analist",
+        "shortdescription": [
           "------------------",
           "------------------",
           "------------------",
           "------------------"
-        ]   
+        ],
+        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "tasks": [
+          "Develop and implement new (technical) solutions or tools to improve the customer journey",
+          "Setting up additional GTM tracking where needed",
+          "Developing A/B-tests in current A/B-test solution",
+          "Implementing winning A/B test variations",
+          "Collaborating on GitHub and Jira",
+          "Maintaining codebase",
+          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+        ],
+
+        "skills": [
+          "Specialist in HTML, CSS, jQuery",
+          "Good knowledge of JavaScript (ES5)",
+          "1-3 years demonstrable experience creating websites with clean, performant code",
+          "Pre: Google Analytics knowledge (Google Tag Manager)",
+          "Pre: A/B testing experience",
+          "Fluent in English & Dutch (French is a plus).",
+          "Pre: good knowledge of UX-design / best practices",
+          "Pre: Experience working in an agile/scrum environment"
+        ]
       }
     ]

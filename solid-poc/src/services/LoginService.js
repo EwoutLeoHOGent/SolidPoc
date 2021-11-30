@@ -6,10 +6,10 @@ import {
 } from "@inrupt/solid-client-authn-browser";
 
 const LoginService = {
-  loginToPodProvider: function (oidcIssuerUser) {
+  loginToPodProvider: function (oidcIssuerUser, id) {
     return login({
       oidcIssuer: oidcIssuerUser,
-      redirectUrl: "http://localhost:3000/Home", //window.location.href, //"http://localhost:3000/Home", nog eens navragen
+      redirectUrl: `http://localhost:3000/JobMatch/${id}`,
       clientName: "Solid poc",
     });
   },
@@ -25,10 +25,7 @@ const LoginService = {
     const session = getDefaultSession();
 
     if (session.info.isLoggedIn) {
-      //sessionStorage.setItem("webID", session.info.webId);
       console.log("inloggen gelukt");
-
-      document.getElementById("loggedInUser").textContent = session.info.webId;
     }
   },
 };
