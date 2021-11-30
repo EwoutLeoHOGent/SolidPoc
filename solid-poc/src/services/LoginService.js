@@ -24,8 +24,6 @@ const LoginService = {
 
     const session = getDefaultSession();
 
-    /*console.log(session); */
-
     if (session.info.isLoggedIn) {
       //sessionStorage.setItem("webID", session.info.webId);
       console.log("inloggen gelukt");

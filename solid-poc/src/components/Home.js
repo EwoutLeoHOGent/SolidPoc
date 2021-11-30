@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginService from "../services/LoginService";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
@@ -13,9 +13,11 @@ import Container from "@mui/material/Container";
 import { useNavigate } from "react-router";
 import AclService from "../services/AclService";
 import Alert from "@mui/material/Alert";
+import jobs from "../data/jobs.json";
+import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 
 export default function Home() {
-  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   //logout user from application
@@ -29,50 +31,31 @@ export default function Home() {
   };
 
   const getRights = () => {
-    AclService.getRights();
+    AclService.getRights()
+      .then((response) => {
+        setError(null);
+        console.log(response);
+
+        const rights = AclService.getAccesRights(response);
+        console.log(rights);
+      })
+      .catch((e) => {
+        setError("Fetching rights has failed");
+      });
   };
 
   //completes login
   LoginService.redirectAfterLogin();
 
-  const jobs = [
-    {
-      title: "Junior Java developer",
-      description: [
-        "------------------",
-        "------------------",
-        "------------------",
-        "------------------",
-      ],
-      buttonText: "Give acces",
-      buttonVariant: "contained",
-      id: 1,
-    },
-    {
-      title: "Data expert",
-      description: [
-        "------------------",
-        "------------------",
-        "------------------",
-        "------------------",
-      ],
-      buttonText: "Give acces",
-      buttonVariant: "contained",
-      id: 2,
-    },
-    {
-      title: "Business analist",
-      description: [
-        "------------------",
-        "------------------",
-        "------------------",
-        "------------------",
-      ],
-      buttonText: "Give acces",
-      buttonVariant: "contained",
-      id: 3,
-    },
-  ];
+  //go to job details
+  const goToJobDetails = (id) => {
+    navigate("/Job/" + id);
+  };
+
+  useEffect(() => {
+    const session = getDefaultSession();
+    console.log(session.info);
+  });
 
   return (
     <div>
@@ -102,16 +85,16 @@ export default function Home() {
           </Button>
         </Toolbar>
       </AppBar>
-      <div hidden={!hasError}>
+      <div hidden={!error}>
         <Alert id="errorAlert" severity="error">
-          This is an error alert — check it out!
+          {error}
         </Alert>
       </div>
       <Container maxWidth="md" component="main" sx={{ marginTop: "10px" }}>
         <Grid container spacing={5} alignItems="flex-end">
-          {jobs.map((job) => (
+          {jobs.map((job, index) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={job.title} xs={12} md={6}>
+            <Grid item key={index} xs={12} md={6}>
               <Card>
                 <CardHeader
                   title={job.title}
@@ -143,19 +126,24 @@ export default function Home() {
                 <CardActions>
                   <Button
                     fullWidth
-                    variant={job.buttonVariant}
+                    variant={"contained"}
                     onClick={giveRightsToCompany}
                   >
-                    {job.buttonText}
+                    Give rights
                   </Button>
-                  <Button
-                    fullWidth
-                    variant={job.buttonVariant}
-                    onClick={getRights}
-                  >
+                  <Button fullWidth variant="contained" onClick={getRights}>
                     Get rights
                   </Button>
                 </CardActions>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={() => {
+                    goToJobDetails(job.id);
+                  }}
+                >
+                  Details
+                </Button>
               </Card>
             </Grid>
           ))}

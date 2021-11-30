@@ -63,21 +63,26 @@ const AclService = {
     }
   },
 
-  getRights: async function () {
-    try {
-      const file = await getFileWithAcl(
-        "https://ewout.inrupt.net/pdf/testPdf.pdf",
-        { fetch: fetch }
-      );
+  getRights: function () {
+    return getFileWithAcl("https://ewout.inrupt.net/pdf/testPdf.pdf", {
+      fetch: fetch,
+    });
 
-      console.log(
-        getAgentAccessAll(file, {
-          fetch: fetch,
-        })
-      );
-    } catch (e) {
-      console.log(e);
-    }
+    /*
+    console.log(
+      getAgentAccessAll(file, {
+        fetch: fetch,
+      })
+    );
+    */
+  },
+
+  getAccesRights: function (file) {
+    return getAgentAccessAll(file, {
+      fetch: fetch,
+    });
+
+    //throw new Error();
   },
 };
 
