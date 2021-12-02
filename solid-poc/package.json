@@ -8,6 +8,7 @@
     "@inrupt/solid-client": "^1.16.1",
     "@inrupt/solid-client-authn-browser": "^1.11.2",
     "@inrupt/vocab-common-rdf": "^1.0.3",
+    "@mui/icons-material": "^5.2.0",
     "@mui/material": "^5.2.1",
     "@mui/system": "^5.2.1",
     "@testing-library/jest-dom": "^5.15.1",

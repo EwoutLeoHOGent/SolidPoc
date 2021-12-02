@@ -1,12 +1,11 @@
 import {
   getSolidDataset,
   getThing,
-  getStringNoLocale,
+  getStringNoLocaleAll,
 } from "@inrupt/solid-client";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { fetch } from "@inrupt/solid-client-authn-browser";
-
-import { RDFS } from "@inrupt/vocab-common-rdf";
+import jobs from "../data/jobs.json";
 
 const ProfileService = {
   getSkillsFromUser: async function () {
@@ -20,12 +19,23 @@ const ProfileService = {
 
     const profile = getThing(dataset, session.info.webId);
 
-    const skills = getStringNoLocale(
+    const skills = getStringNoLocaleAll(
       profile,
       "http://rdfs.org/resume-rdf/cv.rdfs#hasSkill"
     );
 
-    console.log(skills);
+    return skills;
+  },
+
+  checkMatch: function (id, skillsUser) {
+    const skillsJob = jobs[id - 1].escoSkills;
+
+    let missingSkillsUser = skillsJob.filter((x) => !skillsUser.includes(x));
+    let matchingSkillsUser = skillsJob.filter((x) => skillsUser.includes(x));
+
+    const result = [missingSkillsUser, matchingSkillsUser];
+
+    return result;
   },
 };
 

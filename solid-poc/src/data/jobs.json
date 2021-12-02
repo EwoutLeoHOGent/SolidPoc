@@ -29,6 +29,12 @@
           "Fluent in English & Dutch (French is a plus).",
           "Pre: good knowledge of UX-design / best practices",
           "Pre: Experience working in an agile/scrum environment"
+        ],
+
+        "escoSkills": [
+          "skill1",
+          "skill2",
+          "skill3"
         ]
       },
       {
@@ -60,6 +66,12 @@
           "Fluent in English & Dutch (French is a plus).",
           "Pre: good knowledge of UX-design / best practices",
           "Pre: Experience working in an agile/scrum environment"
+        ],
+
+        "escoSkills": [
+          "skill1",
+          "skill2",
+          "skill3"
         ]
       },
       {
@@ -91,6 +103,12 @@
           "Fluent in English & Dutch (French is a plus).",
           "Pre: good knowledge of UX-design / best practices",
           "Pre: Experience working in an agile/scrum environment"
+        ],
+        
+        "escoSkills": [
+          "skill1",
+          "skill2",
+          "skill3"
         ]
       }
     ]
