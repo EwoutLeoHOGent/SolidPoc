@@ -2,11 +2,21 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
+import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
+import { useNavigate } from "react-router";
 
 export default function JobDescription(props) {
+  const navigate = useNavigate();
+
   //go to login page
   const goToLogin = () => {
-    props.login();
+    const session = getDefaultSession();
+
+    if (session.info.isLoggedIn) {
+      navigate(`/JobMatch/${props.jobId}`);
+    } else {
+      props.login();
+    }
   };
 
   return (
@@ -17,7 +27,7 @@ export default function JobDescription(props) {
       >
         {props.job.title}
       </Typography>
-      <Typography>{props.job.intro} </Typography>
+      <Typography sx={{ paddingBottom: "10px" }}>{props.job.intro} </Typography>
       <Typography variant="h6">Tasks</Typography>
       <ul>
         {props.job.tasks.map((task, index) => (
@@ -35,7 +45,11 @@ export default function JobDescription(props) {
         ))}
       </ul>
 
-      <Button variant="contained" onClick={goToLogin}>
+      <Button
+        variant="contained"
+        onClick={goToLogin}
+        sx={{ marginBottom: "10px" }}
+      >
         Soliciteer via solid-pod
       </Button>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./Navbar.js";
 import { useParams } from "react-router-dom";
 import LoginService from "../services/LoginService";
@@ -11,19 +11,23 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import { Typography } from "@mui/material";
 import jobs from "../data/jobs.json";
-import CircularProgress, {
-  circularProgressClasses,
-} from "@mui/material/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useNavigate } from "react-router";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -39,12 +43,44 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 export default function JobMatch() {
+  const navigate = useNavigate();
   const [missingSkills, setMissingSkills] = useState([]);
   const [matchingSkills, setMatchingSkills] = useState([]);
   const [result, setResult] = useState(null);
   const [resultMessage, setResultMessage] = useState(null);
   const [color, setColor] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [podUrl, setPodUrl] = useState(null);
+  const [path, setPath] = useState(null);
+  const [motivation, setMotivation] = useState(null);
+
+  const goToJobs = () => {
+    navigate(`/Home`);
+  };
+
+  const handleClickOpen = () => {
+    setPodUrl(ProfileService.getPodUrl);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleAcceptClick = () => {
+    setOpen(false);
+    console.log(path);
+    console.log(motivation);
+  };
+
+  const handlePathChange = (event) => {
+    setPath(event.target.value);
+  };
+
+  const handleMotivationChange = (event) => {
+    setMotivation(event.target.value);
+  };
 
   let params = useParams();
 
@@ -85,8 +121,10 @@ export default function JobMatch() {
     setIsLoading(false);
   };
 
-  //completes login
-  LoginService.redirectAfterLogin();
+  useEffect(() => {
+    //completes login
+    LoginService.redirectAfterLogin();
+  });
 
   return (
     <div>
@@ -108,39 +146,67 @@ export default function JobMatch() {
       <Box hidden={!isLoading}>
         <CircularProgress />
       </Box>
-      <Box hidden={!result}>
-        <Card sx={{ minWidth: 275, margin: "10px" }}>
-          <CardHeader title="Matching Skills" />
-          <CardContent>
-            <List>
-              {matchingSkills.map((skill, index) => (
-                <ListItem key={index}>
-                  <ListItemIcon>
-                    <CheckIcon sx={{ color: "green" }} />
-                  </ListItemIcon>
-                  <ListItemText>{skill} </ListItemText>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-        </Card>
-        <Card sx={{ minWidth: 275, margin: "10px" }}>
-          <CardHeader title="Missing Skills" />
-          <CardContent>
-            <List>
-              {missingSkills.map((skill, index) => (
-                <ListItem key={index}>
-                  <ListItemIcon>
-                    <CloseIcon sx={{ color: "red" }} />
-                  </ListItemIcon>
-                  <ListItemText>{skill} </ListItemText>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-        </Card>
+      <Box hidden={!result} sx={{ padding: "10px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            padding: "5px",
+          }}
+        >
+          <Card
+            sx={{
+              backgroundColor: "#EAEEF3",
+              flexGrow: 1,
+              minWidth: "450px",
+              margin: "5px",
+              flex: "1 1 0px",
+            }}
+          >
+            <CardHeader title="Matching Skills" />
+            <CardContent>
+              <List>
+                {matchingSkills.map((skill, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <CheckIcon sx={{ color: "green" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={{ whiteSpace: "initial" }}>
+                      {skill}{" "}
+                    </ListItemText>
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+          <Card
+            sx={{
+              backgroundColor: "#EAEEF3",
+              flexGrow: 1,
+              minWidth: "450px",
+              margin: "5px",
+              flex: "1 1 0px",
+            }}
+          >
+            <CardHeader title="Missing Skills" />
+            <CardContent>
+              <List>
+                {missingSkills.map((skill, index) => (
+                  <ListItem key={index}>
+                    <ListItemIcon>
+                      <CloseIcon sx={{ color: "red" }} />
+                    </ListItemIcon>
+                    <ListItemText sx={{ whiteSpace: "initial" }}>
+                      {skill}
+                    </ListItemText>
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        </Box>
 
-        <Box sx={{ padding: "10px" }}>
+        <Box>
           <Box>
             <Typography>{result}%</Typography>
             <BorderLinearProgress
@@ -151,7 +217,56 @@ export default function JobMatch() {
             <Typography>{resultMessage}</Typography>
           </Box>
         </Box>
+        {result >= 50 ? (
+          <Button variant="contained" onClick={handleClickOpen}>
+            Solliciteer
+          </Button>
+        ) : (
+          <Button variant="contained" onClick={goToJobs}>
+            Ga terug naar jobs
+          </Button>
+        )}
       </Box>
+      <div>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Solliciteren</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Geef hieronder een motivatie indien gewenst.
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="motivatie"
+              label="Motivatie"
+              fullWidth
+              variant="standard"
+              onChange={handleMotivationChange}
+            />
+            <DialogContentText>
+              Geef hieronder het juiste path naar je cv.
+            </DialogContentText>
+            <DialogContentText>{podUrl}</DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="path"
+              label="Path"
+              fullWidth
+              variant="standard"
+              onChange={handlePathChange}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button variant="contained" onClick={handleClose}>
+              Annuleren
+            </Button>
+            <Button variant="contained" onClick={handleAcceptClick}>
+              Solliciteer
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
     </div>
   );
 }

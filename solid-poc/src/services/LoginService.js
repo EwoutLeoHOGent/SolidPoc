@@ -2,7 +2,6 @@ import {
   login,
   logout,
   handleIncomingRedirect,
-  getDefaultSession,
 } from "@inrupt/solid-client-authn-browser";
 
 const LoginService = {
@@ -15,18 +14,11 @@ const LoginService = {
   },
 
   logoutUser: function () {
-    console.log("logout");
     return logout();
   },
 
   redirectAfterLogin: async function () {
     await handleIncomingRedirect();
-
-    const session = getDefaultSession();
-
-    if (session.info.isLoggedIn) {
-      console.log("inloggen gelukt");
-    }
   },
 };
 

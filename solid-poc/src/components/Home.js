@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NavBar from "./Navbar.js";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router";
 import jobs from "../data/jobs.json";
-import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -36,11 +35,6 @@ export default function Home() {
   const goToJobDetails = (id) => {
     navigate(`/Job/${id}`);
   };
-
-  useEffect(() => {
-    const session = getDefaultSession();
-    console.log(session.info);
-  });
 
   return (
     <div>

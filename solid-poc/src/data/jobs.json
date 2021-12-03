@@ -34,49 +34,50 @@
         "escoSkills": [
           "skill1",
           "skill2",
-          "skill3"
+          "skill3(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((("
         ]
       },
       {
         "id": 2,
-        "title": "Data expert",
+        "title": "Data analyst",
         "shortdescription": [
           "------------------",
           "------------------",
           "------------------",
           "------------------"
         ],
-        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "intro": "As Data Analyst you use data analysis tools and techniques to inspire various business stakeholders through facts and trends in making strategic business decisions. You use, or provide support in acquiring structured data sets to build advanced visualizations such as dashboards or to compose proactive reports with recommendations based on your findings. You are part of a close-knit team of data specialists. You work closely with various stakeholders in our organization, ranging from general management to R&D and you report to the Head of Data Intelligence.",
         "tasks": [
-          "Develop and implement new (technical) solutions or tools to improve the customer journey",
-          "Setting up additional GTM tracking where needed",
-          "Developing A/B-tests in current A/B-test solution",
-          "Implementing winning A/B test variations",
-          "Collaborating on GitHub and Jira",
-          "Maintaining codebase",
-          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+          "You build and implement advanced dashboards and visualizations, and you proactively share ad hoc data insights to support the business in making well-informed strategic decisions.",
+          "You effectively plan, organize and efficiently manage incoming requests, eliminating unnecessary activities.",
+          "You translate business needs into technical specifications and use BI platforms and tools to address in-scope business challenges.",
+          "You identify, investigate and correct inconsistencies related to the data, ensuring data accuracy in all visualizations and reports.",
+          "You identify, design and implement internal process improvements: e.g. automation of manual processes, optimization of data ingestion and delivery, etc.",
+          "You continuously optimize or enhance existing reports and dashboards in line with current business needs."
         ],
 
         "skills": [
-          "Specialist in HTML, CSS, jQuery",
-          "Good knowledge of JavaScript (ES5)",
-          "1-3 years demonstrable experience creating websites with clean, performant code",
-          "Pre: Google Analytics knowledge (Google Tag Manager)",
-          "Pre: A/B testing experience",
-          "Fluent in English & Dutch (French is a plus).",
-          "Pre: good knowledge of UX-design / best practices",
-          "Pre: Experience working in an agile/scrum environment"
+          "You have a minimum of 3 years of professional experience in a similar role, and 5 years of overall analytics experience.",
+          "Excellent knowledge of analytics based on large datasets (big data environment) and reporting using tools such as Tableau.",
+          "Experience in managing and monitoring data quality.",
+          "Some experience with data science, mathematical statistics or advanced analytics is desirable.",
+          "Some experience with SQL, Python, R and (ideally) Shiny is needed.",
+          "Basic experience with Google Analytics is a plus.",
+          "You are an effective communicator who can handle challenging conversations and uses appropriate language at all levels - both spoken and written in English.",
+          "Capable of working in a fast-paced environment, and able to work independently within strict deadlines.",
+          "Passionate about proactively discovering and sharing new technologies."
         ],
 
         "escoSkills": [
           "skill1",
           "skill2",
-          "skill3"
+          "skill3",
+          "skill4"
         ]
       },
       {
         "id": 3,
-        "title": "Business analist",
+        "title": "Business analyst",
         "shortdescription": [
           "------------------",
           "------------------",
@@ -108,7 +109,9 @@
         "escoSkills": [
           "skill1",
           "skill2",
-          "skill3"
+          "skill3",
+          "skill4",
+          "skill5"
         ]
       }
     ]

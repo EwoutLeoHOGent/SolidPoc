@@ -17,7 +17,11 @@ export default function Job() {
   return (
     <div>
       <NavBar />
-      <JobDescription job={jobs[params.id - 1]} login={goToLogin} />
+      <JobDescription
+        job={jobs[params.id - 1]}
+        login={goToLogin}
+        jobId={params.id}
+      />
     </div>
   );
 }

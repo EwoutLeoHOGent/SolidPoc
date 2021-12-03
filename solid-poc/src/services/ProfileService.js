@@ -13,8 +13,6 @@ const ProfileService = {
 
     const profileDocumentURI = session.info.webId.split("#")[0];
 
-    console.log(profileDocumentURI);
-
     const dataset = await getSolidDataset(profileDocumentURI, { fetch: fetch });
 
     const profile = getThing(dataset, session.info.webId);
@@ -36,6 +34,14 @@ const ProfileService = {
     const result = [missingSkillsUser, matchingSkillsUser];
 
     return result;
+  },
+
+  getPodUrl: function () {
+    const session = getDefaultSession();
+
+    const podUrl = session.info.webId.split("profile")[0];
+
+    return podUrl;
   },
 };
 
