@@ -8,7 +8,7 @@ const LoginService = {
   loginToPodProvider: function (oidcIssuerUser, id) {
     return login({
       oidcIssuer: oidcIssuerUser,
-      redirectUrl: `http://localhost:3000/JobMatch/${id}`,
+      redirectUrl: `http://localhost:3001/JobMatch/${id}`,
       clientName: "Solid poc",
     });
   },

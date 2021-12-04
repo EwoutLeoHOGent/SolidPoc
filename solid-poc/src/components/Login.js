@@ -10,14 +10,14 @@ import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import Alert from "@mui/material/Alert";
 
-export default function Login() {
+export default function Login(props) {
   const { state } = useLocation();
   const [podProvider, setPodProvider] = useState(null);
   const [error, setError] = useState(null);
 
   // Login to pod-provider
   const loginToPodProvider = (provider) => {
-    LoginService.loginToPodProvider(provider, state.id)
+    LoginService.loginToPodProvider(provider, props.jobId)
       .then((res) => {
         setError(null);
       })
@@ -44,7 +44,7 @@ export default function Login() {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
+          margin: 5,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

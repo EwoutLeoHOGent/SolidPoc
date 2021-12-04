@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { useNavigate } from "react-router";
+import Login from "../components/Login.js";
+import Dialog from "@mui/material/Dialog";
 
 export default function JobDescription(props) {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   //go to login page
   const goToLogin = () => {
@@ -47,11 +58,16 @@ export default function JobDescription(props) {
 
       <Button
         variant="contained"
-        onClick={goToLogin}
+        onClick={handleOpen}
         sx={{ marginBottom: "10px" }}
       >
         Soliciteer via solid-pod
       </Button>
+      <Box>
+        <Dialog open={open} onClose={handleClose}>
+          <Login jobId={props.jobId} />
+        </Dialog>
+      </Box>
     </Box>
   );
 }
