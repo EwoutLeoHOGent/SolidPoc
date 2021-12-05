@@ -4,10 +4,10 @@
         "id": 1,
         "title": "Junior Java developer",
         "shortdescription": [
-          "------------------",
-          "------------------",
-          "------------------",
-          "------------------"
+          "Developing tests",
+          "GitHub and Jira",
+          "Maintaining codebase",
+          "Setting up GTM tracking"
         ],
         "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
         "tasks": [
@@ -32,19 +32,20 @@
         ],
 
         "escoSkills": [
-          "skill1",
-          "skill2",
-          "skill3"
-        ]
+          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
+          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
+          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
+        ],
+        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
       },
       {
         "id": 2,
         "title": "Data analyst",
         "shortdescription": [
-          "------------------",
-          "------------------",
-          "------------------",
-          "------------------"
+          "Organize and plan",
+          "Implement process improvements",
+          "Translate business needs",
+          "Build dashboards and visualizations"
         ],
         "intro": "As Data Analyst you use data analysis tools and techniques to inspire various business stakeholders through facts and trends in making strategic business decisions. You use, or provide support in acquiring structured data sets to build advanced visualizations such as dashboards or to compose proactive reports with recommendations based on your findings. You are part of a close-knit team of data specialists. You work closely with various stakeholders in our organization, ranging from general management to R&D and you report to the Head of Data Intelligence.",
         "tasks": [
@@ -69,49 +70,49 @@
         ],
 
         "escoSkills": [
-          "skill1",
-          "skill2",
-          "skill3",
+          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
+          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
+          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876",
           "skill4"
-        ]
+        ],
+        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
       },
       {
         "id": 3,
         "title": "Business analyst",
         "shortdescription": [
-          "------------------",
-          "------------------",
-          "------------------",
-          "------------------"
+          "Knowledge of SQL",
+          "structured problem solving",
+          "Results driven",
+          "quantitative analytics"
         ],
-        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "intro": "As a leading telecommunications and entertainment company with its two feet in the digitization of our society, Telenet is eager to bring aboard data-minded personalities that share our passion for turning data into value for our customers and shareholders. We are looking for a Data Analyst Commissioning to become a part of our Data & Insights Chapter who will use data to support, challenge and inspire our business regarding commissioning.",
         "tasks": [
-          "Develop and implement new (technical) solutions or tools to improve the customer journey",
-          "Setting up additional GTM tracking where needed",
-          "Developing A/B-tests in current A/B-test solution",
-          "Implementing winning A/B test variations",
-          "Collaborating on GitHub and Jira",
-          "Maintaining codebase",
-          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+          "Understanding current commissioning landscape",
+          "Being a partner for business in defining & challenging new commissioning requirements",
+          "Executing gap analysis & defining solution design",
+          "Adapting the configuration (commission rules) in the Sales Performance Management tool",
+          "Developing & maintaining the right reporting in the Sales Performance Management & reporting tool",
+          "Bridging business & IT in projects with commissioning impact (Agile project methodology)"
         ],
 
         "skills": [
-          "Specialist in HTML, CSS, jQuery",
-          "Good knowledge of JavaScript (ES5)",
-          "1-3 years demonstrable experience creating websites with clean, performant code",
-          "Pre: Google Analytics knowledge (Google Tag Manager)",
-          "Pre: A/B testing experience",
-          "Fluent in English & Dutch (French is a plus).",
-          "Pre: good knowledge of UX-design / best practices",
-          "Pre: Experience working in an agile/scrum environment"
+          "Master’s degree in a quantitative field (Business Engineering, Applied Economics, Computer Sciences, Information Management…) or equivalent by experience",
+          "Good knowledge of SQL, MS Excel, Qlik Sense or similar tools",
+          "Strong acumen in quantitative analytics and structured problem solving",
+          "Excellent presentation and storytelling skills and ability to influence decision makers",
+          "Fluent in English and Dutch/French",
+          "Results driven: able to manage an analytics initiative end to end from ideation through production and adoption and have an understanding of the life cycle of an analytics initiative and the common pitfalls."
         ],
         
         "escoSkills": [
-          "skill1",
-          "skill2",
-          "skill3",
+          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
+          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
+          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876",
           "skill4",
           "skill5"
-        ]
+        ],
+
+        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
       }
     ]

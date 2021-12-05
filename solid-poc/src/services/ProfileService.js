@@ -1,7 +1,8 @@
 import {
   getSolidDataset,
   getThing,
-  getStringNoLocaleAll,
+  //getStringNoLocaleAll,
+  getUrlAll,
 } from "@inrupt/solid-client";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { fetch } from "@inrupt/solid-client-authn-browser";
@@ -17,10 +18,17 @@ const ProfileService = {
 
     const profile = getThing(dataset, session.info.webId);
 
+    const skills = getUrlAll(
+      profile,
+      "http://rdfs.org/resume-rdf/cv.rdfs#hasSkill"
+    );
+
+    /*
     const skills = getStringNoLocaleAll(
       profile,
       "http://rdfs.org/resume-rdf/cv.rdfs#hasSkill"
     );
+    */
 
     return skills;
   },
@@ -42,6 +50,14 @@ const ProfileService = {
     const podUrl = session.info.webId.split("profile")[0];
 
     return podUrl;
+  },
+
+  getWebID: function () {
+    const session = getDefaultSession();
+
+    const webId = session.info.webId;
+
+    return webId;
   },
 };
 

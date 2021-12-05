@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <Container maxWidth="md" component="main" sx={{ marginTop: "10px" }}>
+      <Container maxWidth="lg" component="main" sx={{ marginTop: "10px" }}>
         <Grid container spacing={5} alignItems="flex-end">
           {jobs.map((job, index) => (
             // Enterprise card is full width at sm breakpoint

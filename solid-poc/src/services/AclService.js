@@ -5,61 +5,58 @@ import {
   setAgentResourceAccess,
   getAgentAccessAll,
   saveAclFor,
-  deleteAclFor,
+  getResourceAcl,
 } from "@inrupt/solid-client";
 
 import { fetch } from "@inrupt/solid-client-authn-browser";
 
+const companyPod = "https://ewout.solidcommunity.net/profile/card#me";
+
 const AclService = {
-  giveAcces: async function () {
-    const file = await getFileWithAcl(
-      "https://ewout.inrupt.net/pdf/testPdf.pdf",
-      {
-        fetch: fetch,
-      }
-    );
+  giveAcces: async function (fileURL, agent) {
+    const file = await getFileWithAcl(fileURL, {
+      fetch: fetch,
+    });
 
     //check if an acl exists
     if (!hasResourceAcl(file)) {
-      console.log("Geen acl, nieuwe acl wordt aangemaakt");
-
-      const newAcl = createAcl(file);
+      const newAclForFile = createAcl(file);
 
       // Give someone Control access to the given Resource:
-      const acl = setAgentResourceAccess(
-        newAcl,
-        document.getElementById("loggedInUser").textContent,
-        {
-          read: true,
-          append: true,
-          write: true,
-          control: true,
-        }
-      );
+      const acl = setAgentResourceAccess(newAclForFile, agent, {
+        read: true,
+        append: true,
+        write: true,
+        control: true,
+      });
 
       // Now save the ACL:
       await saveAclFor(file, acl, { fetch: fetch });
 
-      const updatedAcl2 = setAgentResourceAccess(
-        acl,
-        "https://ewout.solidcommunity.net/profile/card#me",
+      const updatedAclForFile = setAgentResourceAccess(acl, companyPod, {
+        read: true,
+        append: false,
+        write: false,
+        control: false,
+      });
+
+      // Now save the ACL:
+      await saveAclFor(file, updatedAclForFile, { fetch: fetch });
+    } else {
+      const aclFromFile = getResourceAcl(file, { fetch: fetch });
+
+      const updatedAclFromFile = setAgentResourceAccess(
+        aclFromFile,
+        companyPod,
         {
           read: true,
-          append: true,
-          write: true,
-          control: true,
+          append: false,
+          write: false,
+          control: false,
         }
       );
 
-      // Now save the ACL:
-      await saveAclFor(file, updatedAcl2, { fetch: fetch });
-
-      console.log("Nieuwe acl aangemaakt");
-    } else {
-      console.log("Heeft een bestaande acl");
-      console.log("Wordt verwijderd");
-
-      deleteAclFor(file, { fetch: fetch });
+      await saveAclFor(file, updatedAclFromFile, { fetch: fetch });
     }
   },
 
@@ -67,22 +64,12 @@ const AclService = {
     return getFileWithAcl("https://ewout.inrupt.net/pdf/testPdf.pdf", {
       fetch: fetch,
     });
-
-    /*
-    console.log(
-      getAgentAccessAll(file, {
-        fetch: fetch,
-      })
-    );
-    */
   },
 
   getAccesRights: function (file) {
     return getAgentAccessAll(file, {
       fetch: fetch,
     });
-
-    //throw new Error();
   },
 };
 

@@ -17,18 +17,23 @@ import CardHeader from "@mui/material/CardHeader";
 import { Typography } from "@mui/material";
 import jobs from "../data/jobs.json";
 import CircularProgress from "@mui/material/CircularProgress";
+/*
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import { styled } from "@mui/material/styles";
+*/
+//import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Link from "@mui/material/Link";
+import AclService from "../services/AclService.js";
 import { useNavigate } from "react-router";
 
+/*
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
@@ -41,6 +46,36 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
   },
 }));
+*/
+
+function CircularProgressWithLabel(props) {
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        display: "inline-flex",
+      }}
+    >
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="subtitle2" component="div">
+          {`${Math.round(props.value)}%`}
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
 
 export default function JobMatch() {
   const navigate = useNavigate();
@@ -51,7 +86,7 @@ export default function JobMatch() {
   const [color, setColor] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [podUrl, setPodUrl] = useState(null);
+  //const [podUrl, setPodUrl] = useState(null);
   const [path, setPath] = useState(null);
   const [motivation, setMotivation] = useState(null);
 
@@ -60,7 +95,7 @@ export default function JobMatch() {
   };
 
   const handleClickOpen = () => {
-    setPodUrl(ProfileService.getPodUrl);
+    setPath(ProfileService.getPodUrl);
     setOpen(true);
   };
 
@@ -69,9 +104,13 @@ export default function JobMatch() {
   };
 
   const handleAcceptClick = () => {
-    setOpen(false);
-    console.log(path);
-    console.log(motivation);
+    const webId = ProfileService.getWebID();
+
+    console.log(webId);
+
+    AclService.giveAcces(path, webId);
+
+    navigate(`/Home`);
   };
 
   const handlePathChange = (event) => {
@@ -101,18 +140,18 @@ export default function JobMatch() {
 
       if (matchResult >= 75) {
         setResult(matchResult);
-        setResultMessage("U kan soliciteren");
+        setResultMessage("U kan solliciteren");
         setColor("#00FF00");
       } else if (matchResult >= 50) {
         setResult(matchResult);
         setResultMessage(
-          "U kan soliciteren, maar u matcht niet volledig met de job. Probeer ons te overtuigen!"
+          "U kan solliciteren, maar u matcht niet volledig met de job. Probeer ons te overtuigen!"
         );
         setColor("#FFA500");
       } else {
         setResult(matchResult);
         setResultMessage(
-          "Sorry maar u komt niet in aanmerking om te soliciteren."
+          "Sorry maar u komt niet in aanmerking om te solliciteren."
         );
         setColor("#FF0000");
       }
@@ -172,7 +211,9 @@ export default function JobMatch() {
                       <CheckIcon sx={{ color: "green" }} />
                     </ListItemIcon>
                     <ListItemText sx={{ whiteSpace: "initial" }}>
-                      {skill}{" "}
+                      <Link target="_blank" href={skill} color="inherit">
+                        {skill}
+                      </Link>
                     </ListItemText>
                   </ListItem>
                 ))}
@@ -197,7 +238,13 @@ export default function JobMatch() {
                       <CloseIcon sx={{ color: "red" }} />
                     </ListItemIcon>
                     <ListItemText sx={{ whiteSpace: "initial" }}>
-                      {skill}
+                      <Link
+                        target="_blank"
+                        href={jobs[params.id - 1].urlSkills}
+                        color="inherit"
+                      >
+                        {skill}
+                      </Link>
                     </ListItemText>
                   </ListItem>
                 ))}
@@ -207,14 +254,17 @@ export default function JobMatch() {
         </Box>
 
         <Box>
-          <Box>
-            <Typography>{result}%</Typography>
-            <BorderLinearProgress
-              variant="determinate"
-              value={result}
-              sx={{ width: "50%" }}
-            />
-            <Typography>{resultMessage}</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              paddingBottom: "10px",
+              paddingTop: "10px",
+            }}
+          >
+            <Typography variant="h6">Result:</Typography>
+            <CircularProgressWithLabel value={result} />
+            <Typography sx={{ marginLeft: "10px" }}>{resultMessage}</Typography>
           </Box>
         </Box>
         {result >= 50 ? (
@@ -243,10 +293,9 @@ export default function JobMatch() {
               variant="standard"
               onChange={handleMotivationChange}
             />
-            <DialogContentText>
+            <DialogContentText sx={{ marginTop: "30px" }}>
               Geef hieronder het juiste path naar je cv.
             </DialogContentText>
-            <DialogContentText>{podUrl}</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
@@ -254,6 +303,7 @@ export default function JobMatch() {
               label="Path"
               fullWidth
               variant="standard"
+              value={path}
               onChange={handlePathChange}
             />
           </DialogContent>

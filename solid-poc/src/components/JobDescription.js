@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
-import { useNavigate } from "react-router";
+//import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
+//import { useNavigate } from "react-router";
 import Login from "../components/Login.js";
 import Dialog from "@mui/material/Dialog";
 
 export default function JobDescription(props) {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -19,6 +19,7 @@ export default function JobDescription(props) {
     setOpen(false);
   };
 
+  /*
   //go to login page
   const goToLogin = () => {
     const session = getDefaultSession();
@@ -29,6 +30,7 @@ export default function JobDescription(props) {
       props.login();
     }
   };
+  */
 
   return (
     <Box sx={{ width: "95%", margin: "auto" }}>
@@ -56,6 +58,13 @@ export default function JobDescription(props) {
         ))}
       </ul>
 
+      <Button
+        variant="contained"
+        disabled
+        sx={{ marginBottom: "10px", marginRight: "10px" }}
+      >
+        Soliciteer via e-mail
+      </Button>
       <Button
         variant="contained"
         onClick={handleOpen}
