@@ -1,34 +1,31 @@
 
  [
-        {
+      {
         "id": 1,
         "title": "Junior Java developer",
         "shortdescription": [
-          "Developing tests",
-          "GitHub and Jira",
-          "Maintaining codebase",
-          "Setting up GTM tracking"
+          "Ontwikkelen softwareapplicaties",
+          "Identificeren van bottlenecks",
+          "Onderhouden van applicaties",
+          "Scrum"
         ],
-        "intro": "Do you like improving websites and do you always have a (digital) solution? Are you a team player and do you feel at home in HTML, CSS and jQuery? Do you want to determine directly what the websites of MediaMarkt BeNeLux look like? Then you are our new Frontend Developer! Together with fellow Frontend Developers, web analysts and the CRO specialists, you are responsible for optimising our websites. Your role within the team is to ensure that the websites always work, but especially to bring them to a higher level. You do this on the basis of data supplied by the CRO team. Together with your colleagues, you think of possible solutions and implement the most efficient ones, without losing sight of the UX. Furthermore, you are involved in the implementation of new tools or solutions that contribute to a better customer experience, but also to a higher conversion.",
+        "intro": "Ben je gebeten door softwareontwikkeling? En hou je ervan om sprintjes te trekken in een agile team? Dan ben jij de IT-knobbel (m/v/x) die we zoeken om onze digitale ambities vorm te geven. Zo draag je bij tot innovaties waarvan miljoenen klanten de vruchten plukken.",
         "tasks": [
-          "Develop and implement new (technical) solutions or tools to improve the customer journey",
-          "Setting up additional GTM tracking where needed",
-          "Developing A/B-tests in current A/B-test solution",
-          "Implementing winning A/B test variations",
-          "Collaborating on GitHub and Jira",
-          "Maintaining codebase",
-          "Supporting the Content / web specialists in setting up campaigns and landing pages in the CMS"
+          "Je ontwerpt, ontwikkelt en onderhoudt hoogwaardige, herbruikbare en betrouwbare softwareapplicaties.",
+          "Je identificeert en corrigeert bottlenecks, en lost bugs op.",
+          "Je lanceert nieuwe functionaliteiten.",
+          "Je waakt over codekwaliteit, organisatie en automatisatie."
         ],
 
         "skills": [
           "Specialist in HTML, CSS, jQuery",
-          "Good knowledge of JavaScript (ES5)",
-          "1-3 years demonstrable experience creating websites with clean, performant code",
-          "Pre: Google Analytics knowledge (Google Tag Manager)",
-          "Pre: A/B testing experience",
-          "Fluent in English & Dutch (French is a plus).",
-          "Pre: good knowledge of UX-design / best practices",
-          "Pre: Experience working in an agile/scrum environment"
+          "Je omarmt de scrumwaarden: betrokkenheid, focus, openheid, respect en een gezonde dosis lef.",
+          "Je bent leergierig en gedreven, en je weet van aanpakken.",
+          "Je bent vertrouwd met java en object oriented programmeren, domain driven design en software designpatterns",
+          "Je gedijt uitstekend in een team, en deelt graag je kennis en inzichten.",
+          "Je legt gemakkelijk verbanden, en durft dingen in vraag te stellen.",
+          "Je behaalde een bachelor of master diploma computerwetenschappen of informatica, en hebt maximaal drie jaar ervaring.",
+          "Je hebt een goede kennis van het Nederlands of het Frans, en ook het Engels."
         ],
 
         "escoSkills": [
@@ -39,68 +36,65 @@
       },
       {
         "id": 2,
-        "title": "Data analyst",
+        "title": "UX data-analist",
         "shortdescription": [
-          "Organize and plan",
-          "Implement process improvements",
-          "Translate business needs",
-          "Build dashboards and visualizations"
+          "Organiseren en plannen",
+          "Aanbrengen van verbeteringen in processen",
+          "Vertalen van business requirements",
+          "Uitwerken beleid rond gebruiksdata & analytics"
         ],
-        "intro": "As Data Analyst you use data analysis tools and techniques to inspire various business stakeholders through facts and trends in making strategic business decisions. You use, or provide support in acquiring structured data sets to build advanced visualizations such as dashboards or to compose proactive reports with recommendations based on your findings. You are part of a close-knit team of data specialists. You work closely with various stakeholders in our organization, ranging from general management to R&D and you report to the Head of Data Intelligence.",
+        "intro": "Ben jij graag bezig met het analyseren van de data die schuilen achter de optimale gebruikerservaring? Je eet cijfers als ontbijt en je kan die nog eens helder brengen ook? Solliciteer dan snel voor deze topfunctie!",
         "tasks": [
-          "You build and implement advanced dashboards and visualizations, and you proactively share ad hoc data insights to support the business in making well-informed strategic decisions.",
-          "You effectively plan, organize and efficiently manage incoming requests, eliminating unnecessary activities.",
-          "You translate business needs into technical specifications and use BI platforms and tools to address in-scope business challenges.",
-          "You identify, investigate and correct inconsistencies related to the data, ensuring data accuracy in all visualizations and reports.",
-          "You identify, design and implement internal process improvements: e.g. automation of manual processes, optimization of data ingestion and delivery, etc.",
-          "You continuously optimize or enhance existing reports and dashboards in line with current business needs."
+          "Je gaat op zoek naar logische verbanden in onze gebruiksdata en je analyseert die grondig: zijn er trends te ontdekken of dringen beslissingen zich op?",
+          "Je initieert, ontwerpt en voert onderzoek uit teneinde verbetervoorstellen te doen naar UX & solutions.",
+          "Je ontwikkelt A/B-testen, bekijkt en valideert testdata, je voert analyses uit en rapporteert die naar de betrokken teams om te zien welke features de meeste impact hebben.",
+          "Je valideert bevindingen uit kwalitatief onderzoek aan de hand van kwantitatieve resultaten.",
+          "Je werkt een beleid uit rond gebruiksdata & analytics en je bepaalt in samenwerking met de stakeholders de prioriteiten in dit beleid. Op basis hiervan bepaal je een roadmap en werk je een strategie uit voor het product.",
+          "Je begeleidt de teams in onze solutionorganisatie bij de correcte implementatie van analytics."
         ],
 
         "skills": [
-          "You have a minimum of 3 years of professional experience in a similar role, and 5 years of overall analytics experience.",
-          "Excellent knowledge of analytics based on large datasets (big data environment) and reporting using tools such as Tableau.",
-          "Experience in managing and monitoring data quality.",
-          "Some experience with data science, mathematical statistics or advanced analytics is desirable.",
-          "Some experience with SQL, Python, R and (ideally) Shiny is needed.",
-          "Basic experience with Google Analytics is a plus.",
-          "You are an effective communicator who can handle challenging conversations and uses appropriate language at all levels - both spoken and written in English.",
-          "Capable of working in a fast-paced environment, and able to work independently within strict deadlines.",
-          "Passionate about proactively discovering and sharing new technologies."
+          "Je bent in het bezit van een masterdiploma of gelijkwaardig door ervaring en hebt een eerste relevante werkervaring achter de rug.",
+          "De implementatie en interpretatie van data- en behaviouranalyse zijn voor jou een koud kunstje.",
+          "Google Analytics, Google Optimize, Hotjar, Microsoft Clarity en consoorten ken je als broekzak.",
+          "Je kan de juiste meetpunten definiëren in customer journeys en voor de juiste persona’s.",
+          "Je bent niet bang voor pionierswerk; Je kan cijfers in een duidelijk, overtuigend verhaal gieten en die rapporteren naar PO’s, PM’s en management. Je bent bereid mensen te overtuigen om de juiste focus te leggen.",
+          "Je kan zelfstandig aan de slag en bent iemand die graag initiatief neemt. Je kennis up-to-date houden is voor jou een vanzelfsprekendheid.",
+          "Je bent creatief en denkt graag out of the box."
         ],
 
         "escoSkills": [
           {"url": "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26", "name": "opmaaktaal gebruiken"},
           {"url": "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b", "name": "grafisch ontwerp"},
           {"url": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876", "name": "incrementele ontwikkeling"},
-          {"url": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d", "name": "Python (computerprogrammering)"}
+          {"url": "http://data.europa.eu/esco/skill/1605025e-a179-421f-8f35-5b07d182a6b2", "name": "webanalyse"}
         ]
       },
       {
         "id": 3,
-        "title": "Business analyst",
+        "title": "Business analist",
         "shortdescription": [
-          "Knowledge of SQL",
-          "structured problem solving",
-          "Results driven",
-          "quantitative analytics"
+          "Kennis van SQL",
+          "Enterprise Architect",
+          "Logistieke processen",
+          "Software implementaties"
         ],
-        "intro": "As a leading telecommunications and entertainment company with its two feet in the digitization of our society, Telenet is eager to bring aboard data-minded personalities that share our passion for turning data into value for our customers and shareholders. We are looking for a Data Analyst Commissioning to become a part of our Data & Insights Chapter who will use data to support, challenge and inspire our business regarding commissioning.",
+        "intro": "Als Business Analyst ga je aan de slag in ons hoofdkantoor in het centrum van Antwerpen en werkt tevens regelmatig op onze sites in de Antwerpse haven. In het kader van nieuwe software implementaties en verbeteringsprojecten breng je bestaande processen in kaart en kan je steeds een heldere analyse hiervan voorleggen. Proces wijzigingen zijn essentieel in het oplossen van problemen of in het onderzoeken van nieuwe opportuniteiten. Je werkt wijzigingen en nieuwe processen uit en staat hiervoor dagelijks in contact met de medewerkers van andere afdelingen en beheert de uitwisseling van informatie zodat de expertise binnen de organisatie groeit.",
         "tasks": [
-          "Understanding current commissioning landscape",
-          "Being a partner for business in defining & challenging new commissioning requirements",
-          "Executing gap analysis & defining solution design",
-          "Adapting the configuration (commission rules) in the Sales Performance Management tool",
-          "Developing & maintaining the right reporting in the Sales Performance Management & reporting tool",
-          "Bridging business & IT in projects with commissioning impact (Agile project methodology)"
+          "Je verzamelt alle nodige informatie voor de process analyse en reikt hiervoor uit naar de juiste partijen binnen, en eventueel buiten, de organisatie.",
+          "Je documenteert proces informatie via visuele diagrammen (proces designs) en maakt hiervoor gebruik van specifieke software Enterprise Architect.",
+          "Je werkt mee in projectteams en bent verantwoordelijk voor het uitwerken en analyseren van de processen en bent onderlegd om deze te vertalen naar functionele processen in onze software applicaties. Je hebt hierbij oog voor detail en bent creatief.",
+          "Je bent een schakel tussen business en IT. In die hoedanigheid sta je ook technisch je mannetje en kan je meepraten met de meest recente technologische evoluties.",
+          "Je deelt informatie en werkt op die manier actief mee het vergroten van de expertise binnen de organisatie.",
+          "Je communiceert op een heldere manier met alle stakeholders."
         ],
 
         "skills": [
-          "Master’s degree in a quantitative field (Business Engineering, Applied Economics, Computer Sciences, Information Management…) or equivalent by experience",
-          "Good knowledge of SQL, MS Excel, Qlik Sense or similar tools",
-          "Strong acumen in quantitative analytics and structured problem solving",
-          "Excellent presentation and storytelling skills and ability to influence decision makers",
-          "Fluent in English and Dutch/French",
-          "Results driven: able to manage an analytics initiative end to end from ideation through production and adoption and have an understanding of the life cycle of an analytics initiative and the common pitfalls."
+          "Je beschikt over een hogere opleiding aangevuld met minstens 1 tot 3 jaar werkervaring als Business Analyst.",
+          "Al reeds ervaring met software implementaties.",
+          "Bezit de nodige kennis van BPMN.",
+          "De nodige ervaring met Enterprise Architect",
+          "Kennis van logistiek (forwarding, warehousing, transport, douane)."
         ],
         
         "escoSkills": [

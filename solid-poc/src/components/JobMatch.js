@@ -17,12 +17,6 @@ import CardHeader from "@mui/material/CardHeader";
 import { Typography } from "@mui/material";
 import jobs from "../data/jobs.json";
 import CircularProgress from "@mui/material/CircularProgress";
-/*
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
-*/
-//import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -32,21 +26,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Link from "@mui/material/Link";
 import AclService from "../services/AclService.js";
 import { useNavigate } from "react-router";
-
-/*
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: 5,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
-  },
-}));
-*/
 
 function CircularProgressWithLabel(props) {
   return (
@@ -176,7 +155,7 @@ export default function JobMatch() {
         onClick={getProfileData}
         sx={{ margin: "10px" }}
       >
-        See if job is a match
+        Controleer of je matcht met de job
       </Button>
       <Box hidden={!isLoading}>
         <CircularProgress />
@@ -198,7 +177,7 @@ export default function JobMatch() {
               flex: "1 1 0px",
             }}
           >
-            <CardHeader title="Matching Skills" />
+            <CardHeader title="Aanwezige skills" />
             <CardContent>
               <List>
                 {matchingSkills.map((skill, index) => (
@@ -225,7 +204,7 @@ export default function JobMatch() {
               flex: "1 1 0px",
             }}
           >
-            <CardHeader title="Missing Skills" />
+            <CardHeader title="Ontbrekende skills" />
             <CardContent>
               <List>
                 {missingSkills.map((skill, index) => (

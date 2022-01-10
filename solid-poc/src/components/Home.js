@@ -13,23 +13,6 @@ import jobs from "../data/jobs.json";
 
 export default function Home() {
   const navigate = useNavigate();
-  /*
-  const giveRightsToCompany = () => {
-    AclService.giveAcces();
-  };
-
-  const getRights = () => {
-    AclService.getRights()
-      .then((response) => {
-        setError(null);
-        const rights = AclService.getAccesRights(response);
-        console.log(rights);
-      })
-      .catch((e) => {
-        setError("Fetching rights has failed");
-      });
-  };
-  */
 
   //go to job details
   const goToJobDetails = (id) => {
@@ -42,7 +25,6 @@ export default function Home() {
       <Container maxWidth="lg" component="main" sx={{ marginTop: "10px" }}>
         <Grid container spacing={5} alignItems="flex-end">
           {jobs.map((job, index) => (
-            // Enterprise card is full width at sm breakpoint
             <Grid item key={index} xs={12} md={6}>
               <Card>
                 <CardHeader

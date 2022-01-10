@@ -5,13 +5,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-//import { useLocation } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import Alert from "@mui/material/Alert";
 
 export default function Login(props) {
-  //const { state } = useLocation();
   const [podProvider, setPodProvider] = useState(null);
   const [error, setError] = useState(null);
 

@@ -1,3 +1,4 @@
+
 import {
   getSolidDataset,
   getThing,
@@ -14,11 +15,11 @@ const ProfileService = {
   getSkillsFromUser: async function () {
     const session = getDefaultSession();
 
-    const profileDocumentURI = session.info.webId.split("#")[0];
+    console.log(session);
 
-    console.log(profileDocumentURI);
+    const card = session.info.webId.split("#")[0];
 
-    const dataset = await getSolidDataset(profileDocumentURI, { fetch: fetch });
+    const dataset = await getSolidDataset(card, { fetch: fetch });
 
     const profile = getThing(dataset, session.info.webId);
 

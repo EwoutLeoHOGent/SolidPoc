@@ -18,11 +18,9 @@ const AclService = {
       fetch: fetch,
     });
 
-    //check if an acl exists
     if (!hasResourceAcl(file)) {
       const newAclForFile = createAcl(file);
 
-      // Give someone Control access to the given Resource:
       const acl = setAgentResourceAccess(newAclForFile, agent, {
         read: true,
         append: true,
@@ -30,7 +28,6 @@ const AclService = {
         control: true,
       });
 
-      // Now save the ACL:
       await saveAclFor(file, acl, { fetch: fetch });
 
       const updatedAclForFile = setAgentResourceAccess(acl, companyPod, {
@@ -40,7 +37,6 @@ const AclService = {
         control: false,
       });
 
-      // Now save the ACL:
       await saveAclFor(file, updatedAclForFile, { fetch: fetch });
     } else {
       const aclFromFile = getResourceAcl(file, { fetch: fetch });
