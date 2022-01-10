@@ -1,18 +1,22 @@
 import {
   getSolidDataset,
   getThing,
-  //getStringNoLocaleAll,
   getUrlAll,
+  getStringNoLocale,
 } from "@inrupt/solid-client";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { fetch } from "@inrupt/solid-client-authn-browser";
 import jobs from "../data/jobs.json";
+
+import { SKOS } from "@inrupt/vocab-common-rdf";
 
 const ProfileService = {
   getSkillsFromUser: async function () {
     const session = getDefaultSession();
 
     const profileDocumentURI = session.info.webId.split("#")[0];
+
+    console.log(profileDocumentURI);
 
     const dataset = await getSolidDataset(profileDocumentURI, { fetch: fetch });
 
@@ -23,21 +27,48 @@ const ProfileService = {
       "http://rdfs.org/resume-rdf/cv.rdfs#hasSkill"
     );
 
-    /*
-    const skills = getStringNoLocaleAll(
-      profile,
-      "http://rdfs.org/resume-rdf/cv.rdfs#hasSkill"
-    );
-    */
-
     return skills;
   },
 
-  checkMatch: function (id, skillsUser) {
+  getSkillName: async function (skill) {
+    const session = getDefaultSession();
+
+    const profileDocumentURI = session.info.webId.split("#")[0];
+
+    const dataset = await getSolidDataset(profileDocumentURI, { fetch: fetch });
+
+    const skillName = getStringNoLocale(
+      getThing(dataset, skill),
+      SKOS.prefLabel
+    );
+
+    return skillName;
+  },
+
+  checkMatch: async function (id, skillsUser) {
+    const session = getDefaultSession();
+
+    const profileDocumentURI = session.info.webId.split("#")[0];
+
+    const dataset = await getSolidDataset(profileDocumentURI, { fetch: fetch });
+
     const skillsJob = jobs[id - 1].escoSkills;
 
-    let missingSkillsUser = skillsJob.filter((x) => !skillsUser.includes(x));
-    let matchingSkillsUser = skillsJob.filter((x) => skillsUser.includes(x));
+    const userSkills = skillsUser.map((skill) => {
+      const skillName = getStringNoLocale(
+        getThing(dataset, skill),
+        SKOS.prefLabel
+      );
+
+      return { url: skill, name: skillName };
+    });
+
+    let missingSkillsUser = skillsJob.filter(
+      (x) => !userSkills.some((y) => x.url === y.url)
+    );
+    let matchingSkillsUser = userSkills.filter((x) =>
+      skillsJob.some((y) => x.url === y.url)
+    );
 
     const result = [missingSkillsUser, matchingSkillsUser];
 

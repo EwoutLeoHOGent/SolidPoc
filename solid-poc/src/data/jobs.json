@@ -32,11 +32,10 @@
         ],
 
         "escoSkills": [
-          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
-          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
-          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
-        ],
-        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
+          {"url": "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26", "name": "opmaaktaal gebruiken"},
+          {"url": "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b", "name": "grafisch ontwerp"},
+          {"url": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876", "name": "incrementele ontwikkeling"}
+        ]
       },
       {
         "id": 2,
@@ -70,12 +69,11 @@
         ],
 
         "escoSkills": [
-          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
-          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
-          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876",
-          "skill4"
-        ],
-        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
+          {"url": "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26", "name": "opmaaktaal gebruiken"},
+          {"url": "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b", "name": "grafisch ontwerp"},
+          {"url": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876", "name": "incrementele ontwikkeling"},
+          {"url": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d", "name": "Python (computerprogrammering)"}
+        ]
       },
       {
         "id": 3,
@@ -106,13 +104,11 @@
         ],
         
         "escoSkills": [
-          "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
-          "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b",
-          "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876",
-          "skill4",
-          "skill5"
-        ],
-
-        "urlSkills": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876"
+          {"url": "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26", "name": "opmaaktaal gebruiken"},
+          {"url": "http://data.europa.eu/esco/skill/7fb699d9-182a-430e-b7a0-6d8ed05c284b", "name": "grafisch ontwerp"},
+          {"url": "http://data.europa.eu/esco/skill/00c04e40-35ea-4ed1-824c-82f936c8f876", "name": "incrementele ontwikkeling"},
+          {"url": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742", "name": "SQL"},
+          {"url": "http://data.europa.eu/esco/skill/e747e77e-0ea1-4001-8b07-1d11946b5f1b", "name": "Frans"}
+        ]
       }
     ]

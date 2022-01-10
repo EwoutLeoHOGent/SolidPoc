@@ -83,10 +83,8 @@ export default function JobMatch() {
   const [matchingSkills, setMatchingSkills] = useState([]);
   const [result, setResult] = useState(null);
   const [resultMessage, setResultMessage] = useState(null);
-  const [color, setColor] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  //const [podUrl, setPodUrl] = useState(null);
   const [path, setPath] = useState(null);
   const [motivation, setMotivation] = useState(null);
 
@@ -105,8 +103,6 @@ export default function JobMatch() {
 
   const handleAcceptClick = () => {
     const webId = ProfileService.getWebID();
-
-    console.log(webId);
 
     AclService.giveAcces(path, webId);
 
@@ -127,34 +123,34 @@ export default function JobMatch() {
     setIsLoading(true);
 
     ProfileService.getSkillsFromUser().then((skillsUser) => {
-      const result = ProfileService.checkMatch(params.id, skillsUser);
+      ProfileService.checkMatch(params.id, skillsUser).then((result) => {
+        setMissingSkills(result[0]);
+        setMatchingSkills(result[1]);
 
-      setMissingSkills(result[0]);
-      setMatchingSkills(result[1]);
-
-      const matchResult = Math.round(
-        (result[1].length * 100) / jobs[params.id - 1].escoSkills.length
-      );
-
-      setResult(matchResult);
-
-      if (matchResult >= 75) {
-        setResult(matchResult);
-        setResultMessage("U kan solliciteren");
-        setColor("#00FF00");
-      } else if (matchResult >= 50) {
-        setResult(matchResult);
-        setResultMessage(
-          "U kan solliciteren, maar u matcht niet volledig met de job. Probeer ons te overtuigen!"
+        const matchResult = Math.round(
+          (result[1].length * 100) / jobs[params.id - 1].escoSkills.length
         );
-        setColor("#FFA500");
-      } else {
+
         setResult(matchResult);
-        setResultMessage(
-          "Sorry maar u komt niet in aanmerking om te solliciteren."
-        );
-        setColor("#FF0000");
-      }
+
+        if (matchResult >= 75) {
+          setResult(matchResult);
+          setResultMessage("U kan solliciteren");
+          //setColor("#00FF00");
+        } else if (matchResult >= 50) {
+          setResult(matchResult);
+          setResultMessage(
+            "U kan solliciteren, maar u matcht niet volledig met de job. Probeer ons te overtuigen!"
+          );
+          //setColor("#FFA500");
+        } else {
+          setResult(matchResult);
+          setResultMessage(
+            "Sorry maar u komt niet in aanmerking om te solliciteren."
+          );
+          //setColor("#FF0000");
+        }
+      });
     });
 
     setIsLoading(false);
@@ -185,7 +181,7 @@ export default function JobMatch() {
       <Box hidden={!isLoading}>
         <CircularProgress />
       </Box>
-      <Box hidden={!result} sx={{ padding: "10px" }}>
+      <Box hidden={!resultMessage} sx={{ padding: "10px" }}>
         <Box
           sx={{
             display: "flex",
@@ -211,8 +207,8 @@ export default function JobMatch() {
                       <CheckIcon sx={{ color: "green" }} />
                     </ListItemIcon>
                     <ListItemText sx={{ whiteSpace: "initial" }}>
-                      <Link target="_blank" href={skill} color="inherit">
-                        {skill}
+                      <Link target="_blank" href={skill.url} color="inherit">
+                        {skill.name}
                       </Link>
                     </ListItemText>
                   </ListItem>
@@ -240,10 +236,11 @@ export default function JobMatch() {
                     <ListItemText sx={{ whiteSpace: "initial" }}>
                       <Link
                         target="_blank"
-                        href={jobs[params.id - 1].urlSkills}
+                        href={skill.url}
+                        //href={jobs[params.id - 1].urlSkills}
                         color="inherit"
                       >
-                        {skill}
+                        {skill.name}
                       </Link>
                     </ListItemText>
                   </ListItem>
