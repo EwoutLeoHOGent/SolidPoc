@@ -25,7 +25,7 @@ export default function JobDescription(props) {
         {props.job.title}
       </Typography>
       <Typography sx={{ paddingBottom: "10px" }}>{props.job.intro} </Typography>
-      <Typography variant="h6">Tasks</Typography>
+      <Typography variant="h6">Taken</Typography>
       <ul>
         {props.job.tasks.map((task, index) => (
           <Typography component="li" variant="subtitle1" key={task}>
